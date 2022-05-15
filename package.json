@@ -1,7 +1,10 @@
 {
   "name": "template",
-  "license": "BSD 3-Clause",
   "private": true,
+  "license": "BSD 3-Clause",
+  "workspaces": [
+    "messenger/**/*"
+  ],
   "devDependencies": {
     "@atls/code-service": "^0.0.13",
     "@atls/config-jest": "^0.0.4",

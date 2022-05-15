@@ -1,2 +1,3 @@
-# template
-Template repo
+# Microservices POC
+
+Proof of concept repo
