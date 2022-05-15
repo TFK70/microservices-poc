@@ -1,32 +1,28 @@
-import { Metadata }                     from '@grpc/grpc-js'
+import { Metadata }                from '@grpc/grpc-js'
 /* eslint-disable */
-import { GrpcMethod }                   from '@nestjs/microservices'
+import { GrpcMethod }              from '@nestjs/microservices'
+import { GrpcStreamMethod }        from '@nestjs/microservices'
 
-import { GrpcStreamMethod } from '@nestjs/microservices'
+import _m0                         from 'protobufjs/minimal'
+import Long                        from 'long'
+import { Observable }              from 'rxjs'
 
-import _m0                              from 'protobufjs/minimal'
-import Long                             from 'long'
-import { Observable }                   from 'rxjs'
-
-import { ReceiveMessagesRequest } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
+import { ReceiveMessagesRequest }  from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
 import { ReceiveMessagesResponse } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
-import { SendMessageRequest } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
-import { SendMessageResponse } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
-import { CreateSessionRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { CreateSessionResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { JoinUserRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { JoinUserResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { KillSessionRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { KillSessionResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { ListSessionsRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { ListSessionsResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { CreateUserRequest } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
-
-import { CreateUserResponse } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
-
-import { ListUsersRequest } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
-
-import { ListUsersResponse } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+import { SendMessageRequest }      from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
+import { SendMessageResponse }     from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
+import { CreateSessionRequest }    from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { CreateSessionResponse }   from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { JoinUserRequest }         from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { JoinUserResponse }        from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { KillSessionRequest }      from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { KillSessionResponse }     from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { ListSessionsRequest }     from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { ListSessionsResponse }    from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { CreateUserRequest }       from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+import { CreateUserResponse }      from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+import { ListUsersRequest }        from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+import { ListUsersResponse }       from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
 
 export const protobufPackage = 'team.messenger.messenger.v1alpha1'
 

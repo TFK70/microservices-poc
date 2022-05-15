@@ -13,6 +13,6 @@ export class SessionEntity {
   @Column()
   name!: string
 
-  @OneToMany(() => SessionBindingEntity, (binding) => binding.sessions)
+  @OneToMany(() => SessionBindingEntity, (binding) => binding.sessions, { cascade: true })
   bindings!: Array<SessionBindingEntity>
 }
