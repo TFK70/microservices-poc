@@ -5,5 +5,4 @@ package team.messenger.messenger.v1alpha1;
 message User {
   string id = 1;
   string name = 2;
-  repeated string sessionIds = 3;
 }

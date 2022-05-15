@@ -1,9 +1,10 @@
 syntax = "proto3";
 
 package team.messenger.messenger.v1alpha1;
+import "team/messenger/messenger/v1alpha1/session-binding.types.proto";
 
 message Session {
   string id = 1;
   string name = 2;
-  repeated string userIds = 3;
+  repeated SessionBinding bindings = 3;
 }

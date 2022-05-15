@@ -1,13 +1,15 @@
-import _m0  from 'protobufjs/minimal'
+import _m0                from 'protobufjs/minimal'
 /* eslint-disable */
-import Long from 'long'
+import Long               from 'long'
+
+import { SessionBinding } from '../../../../team/messenger/messenger/v1alpha1/session-binding.types'
 
 export const protobufPackage = 'team.messenger.messenger.v1alpha1'
 
 export interface Session {
   id: string
   name: string
-  userIds: string[]
+  bindings: SessionBinding[]
 }
 
 export const TEAM_MESSENGER_MESSENGER_V1ALPHA1_PACKAGE_NAME = 'team.messenger.messenger.v1alpha1'

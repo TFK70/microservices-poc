@@ -6,6 +6,7 @@ export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/messenger.payl
 export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/messenger.types'
 export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/session.payloads'
 export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/session.types'
+export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/session-binding.types'
 export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/user.payloads'
 export * from '../../gen/nestjs/team/messenger/messenger/v1alpha1/user.types'
 

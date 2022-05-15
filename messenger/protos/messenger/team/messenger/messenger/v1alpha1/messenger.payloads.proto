@@ -5,8 +5,9 @@ package team.messenger.messenger.v1alpha1;
 import "team/messenger/messenger/v1alpha1/messenger.types.proto";
 
 message SendMessageRequest {
-  string sessionId = 1;
-  string payload = 2;
+  string senderId = 1;
+  string sessionId = 2;
+  string payload = 3;
 }
 
 message SendMessageResponse {

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  yarn:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn
+
+  db:
+    image: bitnami/postgresql
+    environment:
+      - POSTGRESQL_PASSWORD=password
+      - POSTGRESQL_DATABASE=db
+      - POSTGRESQL_USER=postgres
+    ports:
+      - 5432:5432
+
+  messenger:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @messenger/service-entrypoint dev
+    networks:
+      - default
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - db

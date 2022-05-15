@@ -7,6 +7,7 @@ import { Message } from '../../../../team/messenger/messenger/v1alpha1/messenger
 export const protobufPackage = 'team.messenger.messenger.v1alpha1'
 
 export interface SendMessageRequest {
+  senderId: string
   sessionId: string
   payload: string
 }
