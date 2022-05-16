@@ -77,7 +77,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls/config-jest", "npm:0.0.4"],\
             ["@atls/schematics", "npm:0.0.11"],\
             ["@jest/core", "virtual:e82efaeb5dbad3cc20561562a12571d1e6ab3b0e3e16ee76fe3fbc78f117981828ff47b8e7cf32973a7efbf625114ac6c926b7c54a2ddba69de3de5d64ffe7f6#npm:27.5.1"],\
-            ["@types/node", "npm:16.11.35"],\
+            ["@types/node", "npm:17.0.33"],\
             ["eslint", "npm:8.12.0"],\
             ["husky", "npm:7.0.4"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
@@ -20160,7 +20160,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls/config-jest", "npm:0.0.4"],\
             ["@atls/schematics", "npm:0.0.11"],\
             ["@jest/core", "virtual:e82efaeb5dbad3cc20561562a12571d1e6ab3b0e3e16ee76fe3fbc78f117981828ff47b8e7cf32973a7efbf625114ac6c926b7c54a2ddba69de3de5d64ffe7f6#npm:27.5.1"],\
-            ["@types/node", "npm:16.11.35"],\
+            ["@types/node", "npm:17.0.33"],\
             ["eslint", "npm:8.12.0"],\
             ["husky", "npm:7.0.4"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\

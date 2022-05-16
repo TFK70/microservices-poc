@@ -27,6 +27,15 @@ import { SendMessageResponse }               from '@messenger/messenger-proto'
 import { JoinUserResponse }                  from '@messenger/messenger-proto'
 import { ReceiveMessagesResponse }           from '@messenger/messenger-proto'
 
+import { CreateSessionDto }                  from '../dto'
+import { SendMessageDto }  from '../dto'
+import { CreateUserDto }                     from '../dto'
+import { ReceiveMessagesDto }                from '../dto'
+import { ListSessionsDto }                   from '../dto'
+import { ListUsersDto }                      from '../dto'
+import { KillSessionDto }                    from '../dto'
+import { JoinUserDto }                       from '../dto'
+
 @Controller()
 @MessengerServiceControllerMethods()
 @UseFilters(new GrpcExceptionsFilter())
@@ -34,7 +43,7 @@ export class MessengerController implements MessengerServiceController {
   constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
 
   @UsePipes(new GrpcValidationPipe())
-  async createSession(request): Promise<CreateSessionResponse> {
+  async createSession(request: CreateSessionDto): Promise<CreateSessionResponse> {
     const command = new CreateSessionCommand(uuid(), request.name)
 
     await this.commandBus.execute(command)
@@ -43,7 +52,7 @@ export class MessengerController implements MessengerServiceController {
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async createUser(request): Promise<CreateUserResponse> {
+  async createUser(request: CreateUserDto): Promise<CreateUserResponse> {
     const command = new CreateUserCommand(uuid(), request.name)
 
     await this.commandBus.execute(command)
@@ -52,17 +61,17 @@ export class MessengerController implements MessengerServiceController {
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async listUsers(request): Promise<ListUsersResponse> {
+  async listUsers(request: ListUsersDto): Promise<ListUsersResponse> {
     return this.queryBus.execute(new GetUsersQuery())
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async listSessions(request): Promise<ListSessionsResponse> {
+  async listSessions(request: ListSessionsDto): Promise<ListSessionsResponse> {
     return this.queryBus.execute(new GetSessionsQuery())
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async killSession(request): Promise<KillSessionResponse> {
+  async killSession(request: KillSessionDto): Promise<KillSessionResponse> {
     const command = new KillSessionCommand(request.id)
 
     await this.commandBus.execute(command)
@@ -71,14 +80,14 @@ export class MessengerController implements MessengerServiceController {
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async joinUser(request): Promise<JoinUserResponse> {
+  async joinUser(request: JoinUserDto): Promise<JoinUserResponse> {
     await this.commandBus.execute(new JoinUserCommand(request.userId, request.sessionId))
 
     return { success: true }
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async sendMessage(request): Promise<SendMessageResponse> {
+  async sendMessage(request: SendMessageDto): Promise<SendMessageResponse> {
     const command = new SendMessageCommand(
       uuid(),
       new Date().toLocaleDateString(),
@@ -93,7 +102,7 @@ export class MessengerController implements MessengerServiceController {
   }
 
   @UsePipes(new GrpcValidationPipe())
-  async receiveMessages(request): Promise<ReceiveMessagesResponse> {
+  async receiveMessages(request: ReceiveMessagesDto): Promise<ReceiveMessagesResponse> {
     return this.queryBus.execute(new ReceiveMessagesQuery(request.userId))
   }
 }
