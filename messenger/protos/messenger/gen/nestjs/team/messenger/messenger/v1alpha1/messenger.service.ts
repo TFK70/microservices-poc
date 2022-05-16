@@ -1,28 +1,30 @@
-import { Metadata }                from '@grpc/grpc-js'
+import { Metadata }                     from '@grpc/grpc-js'
 /* eslint-disable */
-import { GrpcMethod }              from '@nestjs/microservices'
-import { GrpcStreamMethod }        from '@nestjs/microservices'
+import { GrpcMethod }                   from '@nestjs/microservices'
 
-import _m0                         from 'protobufjs/minimal'
-import Long                        from 'long'
-import { Observable }              from 'rxjs'
+import { GrpcStreamMethod } from '@nestjs/microservices'
 
-import { ReceiveMessagesRequest }  from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
+import _m0                              from 'protobufjs/minimal'
+import Long                             from 'long'
+import { Observable }                   from 'rxjs'
+
+import { ReceiveMessagesRequest } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
 import { ReceiveMessagesResponse } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
-import { SendMessageRequest }      from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
-import { SendMessageResponse }     from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
-import { CreateSessionRequest }    from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { CreateSessionResponse }   from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { JoinUserRequest }         from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { JoinUserResponse }        from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { KillSessionRequest }      from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { KillSessionResponse }     from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { ListSessionsRequest }     from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { ListSessionsResponse }    from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
-import { CreateUserRequest }       from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
-import { CreateUserResponse }      from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
-import { ListUsersRequest }        from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
-import { ListUsersResponse }       from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+import { SendMessageRequest } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
+import { SendMessageResponse } from '../../../../team/messenger/messenger/v1alpha1/messenger.payloads'
+import { CreateSessionRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { CreateSessionResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { JoinUserRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { JoinUserResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { ListSessionsRequest } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { ListSessionsResponse } from '../../../../team/messenger/messenger/v1alpha1/session.payloads'
+import { CreateUserRequest } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+
+import { CreateUserResponse } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+
+import { ListUsersRequest } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
+
+import { ListUsersResponse } from '../../../../team/messenger/messenger/v1alpha1/user.payloads'
 
 export const protobufPackage = 'team.messenger.messenger.v1alpha1'
 
@@ -39,8 +41,6 @@ export interface MessengerServiceClient {
   ): Observable<CreateSessionResponse>
 
   joinUser(request: JoinUserRequest, metadata?: Metadata): Observable<JoinUserResponse>
-
-  killSession(request: KillSessionRequest, metadata?: Metadata): Observable<KillSessionResponse>
 
   listSessions(request: ListSessionsRequest, metadata?: Metadata): Observable<ListSessionsResponse>
 
@@ -73,11 +73,6 @@ export interface MessengerServiceController {
     metadata?: Metadata
   ): Promise<JoinUserResponse> | Observable<JoinUserResponse> | JoinUserResponse
 
-  killSession(
-    request: KillSessionRequest,
-    metadata?: Metadata
-  ): Promise<KillSessionResponse> | Observable<KillSessionResponse> | KillSessionResponse
-
   listSessions(
     request: ListSessionsRequest,
     metadata?: Metadata
@@ -104,7 +99,6 @@ export function MessengerServiceControllerMethods() {
       'listUsers',
       'createSession',
       'joinUser',
-      'killSession',
       'listSessions',
       'sendMessage',
       'receiveMessages',

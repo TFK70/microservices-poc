@@ -14,7 +14,6 @@ import { JoinUserCommand }                   from '@messenger/application-module
 import { GetSessionsQuery }                  from '@messenger/application-module'
 import { GetUsersQuery }                     from '@messenger/application-module'
 import { ReceiveMessagesQuery }              from '@messenger/application-module'
-import { KillSessionCommand }                from '@messenger/application-module'
 import { SendMessageCommand }                from '@messenger/application-module'
 import { MessengerServiceController }        from '@messenger/messenger-proto'
 import { MessengerServiceControllerMethods } from '@messenger/messenger-proto'
@@ -22,7 +21,6 @@ import { CreateSessionResponse }             from '@messenger/messenger-proto'
 import { CreateUserResponse }                from '@messenger/messenger-proto'
 import { ListUsersResponse }                 from '@messenger/messenger-proto'
 import { ListSessionsResponse }              from '@messenger/messenger-proto'
-import { KillSessionResponse }               from '@messenger/messenger-proto'
 import { SendMessageResponse }               from '@messenger/messenger-proto'
 import { JoinUserResponse }                  from '@messenger/messenger-proto'
 import { ReceiveMessagesResponse }           from '@messenger/messenger-proto'
@@ -33,7 +31,6 @@ import { CreateUserDto }                     from '../dto'
 import { ReceiveMessagesDto }                from '../dto'
 import { ListSessionsDto }                   from '../dto'
 import { ListUsersDto }                      from '../dto'
-import { KillSessionDto }                    from '../dto'
 import { JoinUserDto }                       from '../dto'
 
 @Controller()
@@ -68,15 +65,6 @@ export class MessengerController implements MessengerServiceController {
   @UsePipes(new GrpcValidationPipe())
   async listSessions(request: ListSessionsDto): Promise<ListSessionsResponse> {
     return this.queryBus.execute(new GetSessionsQuery())
-  }
-
-  @UsePipes(new GrpcValidationPipe())
-  async killSession(request: KillSessionDto): Promise<KillSessionResponse> {
-    const command = new KillSessionCommand(request.id)
-
-    await this.commandBus.execute(command)
-
-    return { id: command.id }
   }
 
   @UsePipes(new GrpcValidationPipe())

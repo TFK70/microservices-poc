@@ -23,14 +23,6 @@ export interface JoinUserResponse {
   success: boolean
 }
 
-export interface KillSessionRequest {
-  id: string
-}
-
-export interface KillSessionResponse {
-  id: string
-}
-
 export interface ListSessionsRequest {}
 
 export interface ListSessionsResponse {

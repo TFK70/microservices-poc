@@ -21,14 +21,6 @@ message JoinUserResponse {
   bool success = 1;
 }
 
-message KillSessionRequest {
-  string id = 1;
-}
-
-message KillSessionResponse {
-  string id = 1;
-}
-
 message ListSessionsRequest {}
 
 message ListSessionsResponse {

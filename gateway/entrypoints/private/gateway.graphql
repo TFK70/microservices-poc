@@ -18,7 +18,6 @@ type Mutation {
   createUser(input: CreateUserInput): CreateUserResponse
   createSession(input: CreateSessionInput): CreateSessionResponse
   joinUser(input: JoinUserInput): JoinUserResponse
-  killSession(input: KillSessionInput): KillSessionResponse
   sendMessage(input: SendMessageInput): SendMessageResponse
   receiveMessages(input: ReceiveMessagesInput): ReceiveMessagesResponse
 }
@@ -34,8 +33,7 @@ type Timer {
   isRunning: Boolean
 }
 
-scalar ListTimersInput
-  @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+scalar ListTimersInput @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
 
 enum ConnectivityState {
   IDLE
@@ -86,8 +84,7 @@ type User {
   name: String
 }
 
-scalar ListUsersInput
-  @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+scalar ListUsersInput @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
 
 type ListSessionsResponse {
   sessions: [Session]
@@ -105,8 +102,7 @@ type SessionBinding {
   sessionId: String
 }
 
-scalar ListSessionsInput
-  @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+scalar ListSessionsInput @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
 
 type CreateUserResponse {
   id: String
@@ -131,14 +127,6 @@ type JoinUserResponse {
 input JoinUserInput {
   userId: String
   sessionId: String
-}
-
-type KillSessionResponse {
-  id: String
-}
-
-input KillSessionInput {
-  id: String
 }
 
 type SendMessageResponse {
