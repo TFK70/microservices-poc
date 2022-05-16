@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package team.messenger.timer.v1alpha1;
+
+message Timer {
+  string id = 1;
+  string code = 2;
+  int32 time = 3;
+  bool isRunning = 4;
+}

@@ -4,12 +4,13 @@
   "license": "BSD 3-Clause",
   "workspaces": [
     "messenger/**/*",
-    "gateway/**/*"
+    "gateway/**/*",
+    "timer/**/*"
   ],
   "resolutions": {
     "@grpc/grpc-js": "1.3.7",
-    "typeorm": "0.2.38",
-    "rxjs": "7.4.0"
+    "rxjs": "7.4.0",
+    "typeorm": "0.2.38"
   },
   "devDependencies": {
     "@atls/code-service": "^0.0.15",

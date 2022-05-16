@@ -30,6 +30,19 @@ services:
     depends_on:
       - db
 
+  timer:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @timer/service-entrypoint dev
+    networks:
+      - default
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - db
+
   private-gateway:
     image: node:16
     working_dir: /workspace
@@ -38,9 +51,11 @@ services:
     entrypoint: yarn workspace @gateway/private-gateway-entrypoint dev
     environment:
       - MESSENGER_SERVICE_URL=messenger:50051
+      - TIMER_SERVICE_URL=timer:50051
     networks:
       - default
     ports:
       - 3000:3000
     depends_on:
       - messenger
+      - timer

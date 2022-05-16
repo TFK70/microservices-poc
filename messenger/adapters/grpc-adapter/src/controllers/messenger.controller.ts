@@ -28,7 +28,7 @@ import { JoinUserResponse }                  from '@messenger/messenger-proto'
 import { ReceiveMessagesResponse }           from '@messenger/messenger-proto'
 
 import { CreateSessionDto }                  from '../dto'
-import { SendMessageDto }  from '../dto'
+import { SendMessageDto }                    from '../dto'
 import { CreateUserDto }                     from '../dto'
 import { ReceiveMessagesDto }                from '../dto'
 import { ListSessionsDto }                   from '../dto'

@@ -969,6 +969,7 @@ __metadata:
     "@nestjs/core": ^8.1.1
     "@nestjs/microservices": ^8.1.1
     "@nestjs/platform-express": ^8.1.1
+    "@timer/timer-proto": "workspace:0.0.1"
     apollo-server-core: 2.25.2
     apollo-server-express: 2.25.2
     class-transformer: ^0.4.0
@@ -3272,6 +3273,185 @@ __metadata:
   checksum: c29df3bcec6fc3bdec2b17981d89d9c9fc9bd7d0c9bcfe92821dc533f4440bc890ccde79971838b4ceed1921d456973c4180d7175ee1d0023ad0562240a58d95
   languageName: node
   linkType: hard
+
+"@timer/application-module@workspace:0.0.1, @timer/application-module@workspace:timer/core/application-module":
+  version: 0.0.0-use.local
+  resolution: "@timer/application-module@workspace:timer/core/application-module"
+  dependencies:
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/testing": ^8.1.1
+    "@timer/domain-module": "workspace:0.0.1"
+    "@types/node": ^16.11.10
+    uuid: ^8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/cqrs": ^8.0.0
+  languageName: unknown
+  linkType: soft
+
+"@timer/cqrs-adapter-module@workspace:0.0.1, @timer/cqrs-adapter-module@workspace:timer/adapters/cqrs-adapter":
+  version: 0.0.0-use.local
+  resolution: "@timer/cqrs-adapter-module@workspace:timer/adapters/cqrs-adapter"
+  dependencies:
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/cqrs": ^8.0.0
+    "@types/uuid": ^8.3.1
+    rxjs: ^7.4.0
+  peerDependencies:
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/cqrs": ^8.0.0
+  languageName: unknown
+  linkType: soft
+
+"@timer/domain-module@workspace:0.0.1, @timer/domain-module@workspace:timer/core/domain-module":
+  version: 0.0.0-use.local
+  resolution: "@timer/domain-module@workspace:timer/core/domain-module"
+  dependencies:
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/testing": ^8.1.1
+    "@types/uuid": ^8.3.1
+    date-fns: ^2.25.0
+    rxjs: ^7.4.0
+    uuid: ^8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/cqrs": ^8.0.0
+  languageName: unknown
+  linkType: soft
+
+"@timer/grpc-adapter-module@workspace:0.0.1, @timer/grpc-adapter-module@workspace:timer/adapters/grpc-adapter":
+  version: 0.0.0-use.local
+  resolution: "@timer/grpc-adapter-module@workspace:timer/adapters/grpc-adapter"
+  dependencies:
+    "@atls/nestjs-grpc-errors": ^0.0.3
+    "@atls/nestjs-grpc-identity": ^0.0.5
+    "@atls/nestjs-grpc-playground": 0.0.5
+    "@atls/nestjs-grpc-reflection": ^0.0.2
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/microservices": ^8.1.1
+    "@timer/application-module": "workspace:0.0.1"
+    "@timer/domain-module": "workspace:0.0.1"
+    "@timer/timer-proto": "workspace:0.0.1"
+    "@types/uuid": ^8.3.1
+    class-transformer: ^0.4.0
+    class-validator: ^0.13.1
+    rxjs: ^7.4.0
+    uuid: ^8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/microservices": ^8.0.4
+  languageName: unknown
+  linkType: soft
+
+"@timer/infrastructure-module@workspace:0.0.1, @timer/infrastructure-module@workspace:timer/core/infrastructure-module":
+  version: 0.0.0-use.local
+  resolution: "@timer/infrastructure-module@workspace:timer/core/infrastructure-module"
+  dependencies:
+    "@atls/typeorm-logger": ^0.0.1
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/microservices": ^8.1.1
+    "@nestjs/testing": ^8.1.1
+    "@nestjs/typeorm": ^8.0.2
+    "@timer/application-module": "workspace:0.0.1"
+    "@timer/domain-module": "workspace:0.0.1"
+    "@types/node": ^16.11.10
+    "@types/pg": ^8.6.1
+    mqtt: ^4.2.8
+    pg-mem: ^2.0.1
+    rxjs: ^7.4.0
+    ts-node: ^10.3.0
+    typeorm: ^0.2.37
+    uuid: ^8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/microservices": ^8.0.4
+    "@nestjs/typeorm": ^8.0.1
+    typeorm: ^0.2.34
+  languageName: unknown
+  linkType: soft
+
+"@timer/service-entrypoint@workspace:timer/entrypoints/service-entrypoint":
+  version: 0.0.0-use.local
+  resolution: "@timer/service-entrypoint@workspace:timer/entrypoints/service-entrypoint"
+  dependencies:
+    "@atls/grpc-error-status": ^0.0.3
+    "@atls/nestjs-grpc-errors": ^0.0.3
+    "@atls/nestjs-grpc-identity": ^0.0.5
+    "@atls/nestjs-grpc-playground": 0.0.5
+    "@atls/nestjs-logger": ^0.2.37
+    "@atls/nestjs-typeorm-seeding": ^0.0.4
+    "@grpc/grpc-js": ^1.4.1
+    "@grpc/proto-loader": ^0.6.5
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/cqrs": ^8.0.0
+    "@nestjs/microservices": ^8.1.1
+    "@nestjs/platform-express": ^8.1.1
+    "@nestjs/testing": ^8.1.1
+    "@nestjs/typeorm": ^8.0.2
+    "@timer/application-module": "workspace:0.0.1"
+    "@timer/cqrs-adapter-module": "workspace:0.0.1"
+    "@timer/domain-module": "workspace:0.0.1"
+    "@timer/grpc-adapter-module": "workspace:0.0.1"
+    "@timer/infrastructure-module": "workspace:0.0.1"
+    "@timer/timer-proto": "workspace:0.0.1"
+    "@types/faker": ^5.5.9
+    "@types/jsonwebtoken": ^8.5.5
+    "@types/uuid": ^8.3.1
+    class-transformer: ^0.4.0
+    class-validator: ^0.13.1
+    faker: ^5.5.3
+    get-port: ^5.1.1
+    jsonwebtoken: ^8.5.1
+    mqtt: ^4.2.8
+    reflect-metadata: ^0.1.13
+    rxjs: ^7.4.0
+    testcontainers: ^7.18.2
+    typeorm: ^0.2.37
+    uuid: ^8.3.2
+  languageName: unknown
+  linkType: soft
+
+"@timer/timer-proto@workspace:0.0.1, @timer/timer-proto@workspace:timer/protos/timer":
+  version: 0.0.0-use.local
+  resolution: "@timer/timer-proto@workspace:timer/protos/timer"
+  dependencies:
+    "@atls/nestjs-grpc-reflection": ^0.0.2
+    "@grpc/grpc-js": ^1.4.1
+    "@monstrs/types-import-proto": 0.0.1
+    "@nestjs/common": ^8.1.1
+    "@nestjs/core": ^8.1.1
+    "@nestjs/microservices": ^8.1.1
+    "@types/long": ^4.0.1
+    long: ^4.0.0
+    protobufjs: ^6.11.2
+    rxjs: ^7.4.0
+    ts-proto: 1.83.1
+  peerDependencies:
+    "@atls/nestjs-grpc-reflection": ^0.0.2
+    "@grpc/grpc-js": ^1.3.6
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/microservices": ^8.0.4
+    rxjs: ^7.2.0
+  languageName: unknown
+  linkType: soft
 
 "@tootallnate/once@npm:1":
   version: 1.1.2
