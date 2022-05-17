@@ -1,0 +1,41 @@
+{
+  "name": "@messenger/infrastructure-module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "migration:generate": "yarn run typeorm migration:generate",
+    "migration:run": "yarn run typeorm migration:run",
+    "typeorm": "TS_NODE_PROJECT=./typeorm.tsconfig.json node --require ts-node/register $(yarn bin typeorm)"
+  },
+  "dependencies": {
+    "@atls/typeorm-logger": "^0.0.1",
+    "@messenger/application-module": "workspace:0.0.1",
+    "@messenger/domain-module": "workspace:0.0.1",
+    "mqtt": "^4.2.8",
+    "rxjs": "^7.4.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^8.1.1",
+    "@nestjs/core": "^8.1.1",
+    "@nestjs/cqrs": "^8.0.0",
+    "@nestjs/microservices": "^8.1.1",
+    "@nestjs/testing": "^8.1.1",
+    "@nestjs/typeorm": "^8.0.2",
+    "@types/node": "^16.11.10",
+    "@types/pg": "^8.6.1",
+    "pg-mem": "^2.0.1",
+    "ts-node": "^10.3.0",
+    "typeorm": "^0.2.37"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
+    "@nestjs/cqrs": "^8.0.0",
+    "@nestjs/microservices": "^8.0.4",
+    "@nestjs/typeorm": "^8.0.1",
+    "typeorm": "^0.2.34"
+  }
+}

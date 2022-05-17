@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package team.messenger.messenger.v1alpha1;
+
+import "team/messenger/messenger/v1alpha1/messenger.types.proto";
+
+message SendMessageRequest {
+  string senderId = 1;
+  string sessionId = 2;
+  string payload = 3;
+}
+
+message SendMessageResponse {
+  string id = 1;
+}
+
+message ReceiveMessagesRequest {
+  string userId = 1;
+}
+
+message ReceiveMessagesResponse {
+  repeated Message messages = 1;
+}

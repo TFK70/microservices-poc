@@ -1,0 +1,19 @@
+version: v1beta1
+
+build:
+  roots:
+    - .
+
+lint:
+  use:
+    - DEFAULT
+  except:
+    - ENUM_VALUE_PREFIX
+    - ENUM_ZERO_VALUE_SUFFIX
+    - FILE_LOWER_SNAKE_CASE
+  ignore:
+    - grpc
+
+breaking:
+  use:
+    - FILE

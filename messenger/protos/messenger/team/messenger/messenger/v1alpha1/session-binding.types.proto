@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package team.messenger.messenger.v1alpha1;
+
+message SessionBinding {
+  string id = 1;
+  string userId = 2;
+  string sessionId = 3;
+}

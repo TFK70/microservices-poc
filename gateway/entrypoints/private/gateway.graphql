@@ -1,0 +1,156 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  listTimers(input: ListTimersInput): ListTimersResponse
+  connectivityState(tryToConnect: Boolean): ConnectivityState
+  listUsers(input: ListUsersInput): ListUsersResponse
+  listSessions(input: ListSessionsInput): ListSessionsResponse
+}
+
+type Mutation {
+  createTimer(input: CreateTimerInput): CreateTimerResponse
+  startTimer(input: StartTimerInput): StartTimerResponse
+  stopTimer(input: StopTimerInput): StopTimerResponse
+  removeTimer(input: RemoveTimerInput): RemoveTimerResponse
+  createUser(input: CreateUserInput): CreateUserResponse
+  createSession(input: CreateSessionInput): CreateSessionResponse
+  joinUser(input: JoinUserInput): JoinUserResponse
+  sendMessage(input: SendMessageInput): SendMessageResponse
+  receiveMessages(input: ReceiveMessagesInput): ReceiveMessagesResponse
+}
+
+type ListTimersResponse {
+  timers: [Timer]
+}
+
+type Timer {
+  id: String
+  code: String
+  time: Int
+  isRunning: Boolean
+}
+
+scalar ListTimersInput @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+enum ConnectivityState {
+  IDLE
+  CONNECTING
+  READY
+  TRANSIENT_FAILURE
+  SHUTDOWN
+}
+
+type CreateTimerResponse {
+  id: String
+}
+
+input CreateTimerInput {
+  code: String
+}
+
+type StartTimerResponse {
+  id: String
+}
+
+input StartTimerInput {
+  id: String
+}
+
+type StopTimerResponse {
+  id: String
+}
+
+input StopTimerInput {
+  id: String
+}
+
+type RemoveTimerResponse {
+  id: String
+}
+
+input RemoveTimerInput {
+  id: String
+}
+
+type ListUsersResponse {
+  users: [User]
+}
+
+type User {
+  id: String
+  name: String
+}
+
+scalar ListUsersInput @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type ListSessionsResponse {
+  sessions: [Session]
+}
+
+type Session {
+  id: String
+  name: String
+  bindings: [SessionBinding]
+}
+
+type SessionBinding {
+  id: String
+  userId: String
+  sessionId: String
+}
+
+scalar ListSessionsInput @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type CreateUserResponse {
+  id: String
+}
+
+input CreateUserInput {
+  name: String
+}
+
+type CreateSessionResponse {
+  id: String
+}
+
+input CreateSessionInput {
+  name: String
+}
+
+type JoinUserResponse {
+  success: Boolean
+}
+
+input JoinUserInput {
+  userId: String
+  sessionId: String
+}
+
+type SendMessageResponse {
+  id: String
+}
+
+input SendMessageInput {
+  senderId: String
+  sessionId: String
+  payload: String
+}
+
+type ReceiveMessagesResponse {
+  messages: [Message]
+}
+
+type Message {
+  id: String
+  date: String
+  payload: String
+  senderId: String
+  sessionId: String
+}
+
+input ReceiveMessagesInput {
+  userId: String
+}

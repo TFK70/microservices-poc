@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package team.messenger.timer.v1alpha1;
+
+import "team/messenger/timer/v1alpha1/timer.types.proto";
+
+message CreateTimerRequest {
+  string code = 1;
+}
+
+message CreateTimerResponse {
+  string id = 1;
+}
+
+message StartTimerRequest {
+  string id = 1;
+}
+
+message StartTimerResponse {
+  string id = 1;
+}
+
+message StopTimerRequest {
+  string id = 1;
+}
+
+message StopTimerResponse {
+  string id = 1;
+}
+
+message RemoveTimerRequest {
+  string id = 1;
+}
+
+message RemoveTimerResponse {
+  string id = 1;
+}
+
+message ListTimersRequest {}
+
+message ListTimersResponse {
+  repeated Timer timers = 1;
+}

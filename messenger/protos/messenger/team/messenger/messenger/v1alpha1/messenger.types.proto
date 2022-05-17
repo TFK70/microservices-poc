@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package team.messenger.messenger.v1alpha1;
+
+message Message {
+  string id = 1;
+  string date = 2;
+  string payload = 3;
+  string senderId = 4;
+  string sessionId = 5;
+}

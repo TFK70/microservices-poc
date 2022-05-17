@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  yarn:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn
+
+  db:
+    image: bitnami/postgresql
+    environment:
+      - POSTGRESQL_PASSWORD=password
+      - POSTGRESQL_DATABASE=db
+      - POSTGRESQL_USER=postgres
+    ports:
+      - 5432:5432
+
+  messenger:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @messenger/service-entrypoint dev
+    networks:
+      - default
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - db
+
+  timer:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @timer/service-entrypoint dev
+    networks:
+      - default
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - db
+
+  private-gateway:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @gateway/private-gateway-entrypoint dev
+    environment:
+      - MESSENGER_SERVICE_URL=messenger:50051
+      - TIMER_SERVICE_URL=timer:50051
+    networks:
+      - default
+    ports:
+      - 3000:3000
+    depends_on:
+      - messenger
+      - timer

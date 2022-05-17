@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package team.messenger.messenger.v1alpha1;
+
+import "team/messenger/messenger/v1alpha1/session.types.proto";
+
+message CreateSessionRequest {
+  string name = 1;
+}
+
+message CreateSessionResponse {
+  string id = 1;
+}
+
+message JoinUserRequest {
+  string userId = 1;
+  string sessionId = 2;
+}
+
+message JoinUserResponse {
+  bool success = 1;
+}
+
+message ListSessionsRequest {}
+
+message ListSessionsResponse {
+  repeated Session sessions = 1;
+}

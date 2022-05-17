@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package team.messenger.messenger.v1alpha1;
+
+import "team/messenger/messenger/v1alpha1/messenger.payloads.proto";
+import "team/messenger/messenger/v1alpha1/session.payloads.proto";
+import "team/messenger/messenger/v1alpha1/user.payloads.proto";
+
+service MessengerService {
+  rpc createUser (CreateUserRequest) returns (CreateUserResponse) {}
+  rpc listUsers (ListUsersRequest) returns (ListUsersResponse) {}
+  rpc createSession (CreateSessionRequest) returns (CreateSessionResponse) {}
+  rpc joinUser (JoinUserRequest) returns (JoinUserResponse) {}
+  rpc listSessions (ListSessionsRequest) returns (ListSessionsResponse) {}
+  rpc sendMessage (SendMessageRequest) returns (SendMessageResponse) {}
+  rpc receiveMessages (ReceiveMessagesRequest) returns (ReceiveMessagesResponse) {}
+}

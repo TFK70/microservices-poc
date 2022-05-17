@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package team.messenger.timer.v1alpha1;
+
+import "team/messenger/timer/v1alpha1/timer.payloads.proto";
+
+service TimerService {
+  rpc createTimer (CreateTimerRequest) returns (CreateTimerResponse) {}
+  rpc startTimer (StartTimerRequest) returns (StartTimerResponse) {}
+  rpc stopTimer (StopTimerRequest) returns (StopTimerResponse) {}
+  rpc removeTimer (RemoveTimerRequest) returns (RemoveTimerResponse) {}
+  rpc listTimers (ListTimersRequest) returns (ListTimersResponse) {}
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@gateway/private-gateway-entrypoint",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "yarn service build",
+    "dev": "yarn service dev",
+    "prepack": "run build",
+    "start": "yarn node dist/index.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.1.1",
+    "apollo-server-core": "2.25.2",
+    "apollo-server-express": "2.25.2",
+    "graphql": "^15.6.1"
+  },
+  "devDependencies": {
+    "@atls/nestjs-gateway": "^0.0.3",
+    "@atls/nestjs-logger": "^0.2.37",
+    "@messenger/messenger-proto": "workspace:0.0.1",
+    "@nestjs/core": "^8.1.1",
+    "@nestjs/microservices": "^8.1.1",
+    "@nestjs/platform-express": "^8.1.1",
+    "@timer/timer-proto": "workspace:0.0.1",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.4.0"
+  },
+  "externalDependencies": {
+    "@nestjs/common/utils/load-package.util": "*",
+    "apollo-server-express": "*",
+    "apollo-server-core": "*",
+    "graphql": "*"
+  }
+}

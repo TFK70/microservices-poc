@@ -1,0 +1,54 @@
+{
+  "name": "@timer/service-entrypoint",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn service build",
+    "dev": "yarn service dev",
+    "prepack": "run build",
+    "start": "yarn node dist/index.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.1.1"
+  },
+  "devDependencies": {
+    "@atls/grpc-error-status": "^0.0.3",
+    "@atls/nestjs-grpc-errors": "^0.0.3",
+    "@atls/nestjs-grpc-identity": "^0.0.5",
+    "@atls/nestjs-grpc-playground": "0.0.5",
+    "@atls/nestjs-logger": "^0.2.37",
+    "@atls/nestjs-typeorm-seeding": "^0.0.4",
+    "@grpc/grpc-js": "^1.4.1",
+    "@grpc/proto-loader": "^0.6.5",
+    "@nestjs/core": "^8.1.1",
+    "@nestjs/cqrs": "^8.0.0",
+    "@nestjs/microservices": "^8.1.1",
+    "@nestjs/platform-express": "^8.1.1",
+    "@nestjs/testing": "^8.1.1",
+    "@nestjs/typeorm": "^8.0.2",
+    "@timer/application-module": "workspace:0.0.1",
+    "@timer/cqrs-adapter-module": "workspace:0.0.1",
+    "@timer/domain-module": "workspace:0.0.1",
+    "@timer/grpc-adapter-module": "workspace:0.0.1",
+    "@timer/infrastructure-module": "workspace:0.0.1",
+    "@timer/timer-proto": "workspace:0.0.1",
+    "@types/faker": "^5.5.9",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/uuid": "^8.3.1",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "faker": "^5.5.3",
+    "get-port": "^5.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mqtt": "^4.2.8",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.4.0",
+    "testcontainers": "^7.18.2",
+    "typeorm": "^0.2.37",
+    "uuid": "^8.3.2"
+  },
+  "externalDependencies": {
+    "@nestjs/common/utils/load-package.util": "*"
+  }
+}
